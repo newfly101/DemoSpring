@@ -1,4 +1,9 @@
-package com.daybreak.demospring.member;
+package com.daybreak.demospring;
+
+import com.daybreak.demospring.member.Grade;
+import com.daybreak.demospring.member.Member;
+import com.daybreak.demospring.member.MemberService;
+import com.daybreak.demospring.member.MemberServiceImpl;
 
 public class MemberApp {
     public static void main(String[] args) {

@@ -5,12 +5,20 @@ import com.daybreak.demospring.member.Grade;
 import com.daybreak.demospring.member.Member;
 import com.daybreak.demospring.member.MemberService;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class OrderServiceTest {
-    AppConfig appConfig = new AppConfig();
-    MemberService memberService = appConfig.memberService();
-    OrderService orderService = appConfig.orderService();
+
+    MemberService memberService;
+    OrderService orderService;
+
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
 
     @Test
     void createOrder() {

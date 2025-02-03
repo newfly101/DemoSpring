@@ -2,6 +2,7 @@ package com.daybreak.demospring;
 
 import com.daybreak.demospring.discount.DiscountPolicy;
 import com.daybreak.demospring.discount.FixDiscountPolicy;
+import com.daybreak.demospring.discount.RateDiscountPolicy;
 import com.daybreak.demospring.member.MemberRepository;
 import com.daybreak.demospring.member.MemberService;
 import com.daybreak.demospring.member.MemberServiceImpl;
@@ -16,7 +17,8 @@ public class AppConfig {
     }
 
     public DiscountPolicy discountPolicy() {
-        return new FixDiscountPolicy();
+//        return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 
     public MemberService memberService() {

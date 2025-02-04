@@ -4,6 +4,7 @@ import com.daybreak.demospring.AppConfig;
 import com.daybreak.demospring.member.MemberRepository;
 import com.daybreak.demospring.member.MemberServiceImpl;
 import com.daybreak.demospring.order.OrderServiceImpl;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
@@ -25,5 +26,8 @@ public class ConfigurationSingletonTest {
         System.out.println("memberService -> memberRepository = " + memberRepository1);
         System.out.println("orderService -> memberRepository = " + memberRepository2);
         System.out.println("memberRepository = " + memberRepository);
+
+        Assertions.assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
+        Assertions.assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
     }
 }

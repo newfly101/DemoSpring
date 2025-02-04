@@ -30,6 +30,19 @@ class StatefulServiceTest {
         Assertions.assertThat(service1.getPrice()).isEqualTo(20_000);
     }
 
+    @Test
+    @DisplayName("서비스 테스트 : 무상태로 설계된 서비스")
+    void statelessServiceSingleton() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(TestConfig.class);
+        StatefulService service1 = context.getBean(StatefulService.class);
+        StatefulService service2 = context.getBean(StatefulService.class);
+        int threadAPrice = service1.orderLess("userA", 10_000);
+        int threadBPrice = service1.orderLess("userB", 20_000);
+
+        System.out.println("threadAPrice = " + threadAPrice);
+        Assertions.assertThat(threadAPrice).isEqualTo(10_000);
+    }
+
     static class TestConfig {
 
         @Bean

@@ -2,7 +2,9 @@ package com.daybreak.demospring.discount;
 
 import com.daybreak.demospring.member.Grade;
 import com.daybreak.demospring.member.Member;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;

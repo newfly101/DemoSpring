@@ -3,15 +3,17 @@ package com.daybreak.demospring.order;
 import com.daybreak.demospring.discount.DiscountPolicy;
 import com.daybreak.demospring.member.Member;
 import com.daybreak.demospring.member.MemberRepository;
-import com.daybreak.demospring.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService {
-
 
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
     // 구현 객체가 없기 때문에, TEST 진행 시 nullPointException 이 발생하게 됨
 
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;

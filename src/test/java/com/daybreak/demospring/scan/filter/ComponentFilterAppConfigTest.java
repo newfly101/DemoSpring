@@ -26,7 +26,10 @@ public class ComponentFilterAppConfigTest {
     @Configuration
     @ComponentScan(
             includeFilters = @ComponentScan.Filter(classes = MyIncludeComponent.class),
-            excludeFilters = @ComponentScan.Filter(classes = MyExcludeComponent.class)
+            excludeFilters = {
+                    @ComponentScan.Filter(classes = MyExcludeComponent.class),
+                    @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = BeanA.class) // 잘 사용 안함
+            }
     )
     static class ComponentFilterAppConfig {
 

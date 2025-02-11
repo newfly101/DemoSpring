@@ -9,12 +9,26 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderServiceImpl implements OrderService {
 
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
-    // 구현 객체가 없기 때문에, TEST 진행 시 nullPointException 이 발생하게 됨
+    private MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
+
+    /* 수정자 주입 */
+    @Autowired(required = false)
+    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+        System.out.println("discountPolicy = " + discountPolicy);
+        this.discountPolicy = discountPolicy;
+    }
+
+    @Autowired(required = false)
+    public void setMemberRepository(MemberRepository memberRepository) {
+        System.out.println("memberRepository = " + memberRepository);
+        this.memberRepository = memberRepository;
+    }
+    /* 수정자 주입 */
 
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        System.out.println("memberRepository = " + memberRepository);
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }

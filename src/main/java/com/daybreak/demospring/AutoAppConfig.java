@@ -19,13 +19,6 @@ import static org.springframework.context.annotation.ComponentScan.*;
         excludeFilters = @Filter(type = FilterType.ANNOTATION, classes = Configuration.class))
 public class AutoAppConfig {
 
-    @Autowired MemberRepository memberRepository;
-    @Autowired DiscountPolicy discountPolicy;
-
-    @Bean
-    OrderService orderService() {
-        return new OrderServiceImpl(memberRepository, discountPolicy);
-    }
 
     @Bean(name = "memoryMemberRepository") // 수동 빈 등록
     MemberRepository memberRepository() {

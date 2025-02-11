@@ -1,11 +1,7 @@
 package com.daybreak.demospring;
 
-import com.daybreak.demospring.discount.DiscountPolicy;
 import com.daybreak.demospring.member.MemberRepository;
 import com.daybreak.demospring.member.MemoryMemberRepository;
-import com.daybreak.demospring.order.OrderService;
-import com.daybreak.demospring.order.OrderServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

@@ -11,13 +11,8 @@ import static org.springframework.context.annotation.ComponentScan.*;
 
 @Configuration
 @ComponentScan(
-        basePackages = "com.daybreak.demospring.member",
+//        basePackages = "com.daybreak.demospring",
         excludeFilters = @Filter(type = FilterType.ANNOTATION, classes = Configuration.class))
 public class AutoAppConfig {
 
-
-    @Bean(name = "memoryMemberRepository") // 수동 빈 등록
-    MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
-    }
 }

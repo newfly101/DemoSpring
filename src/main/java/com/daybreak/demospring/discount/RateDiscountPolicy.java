@@ -1,12 +1,13 @@
 package com.daybreak.demospring.discount;
 
+import com.daybreak.demospring.annotation.MainDiscountPolicy;
 import com.daybreak.demospring.member.Grade;
 import com.daybreak.demospring.member.Member;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary
+@MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;

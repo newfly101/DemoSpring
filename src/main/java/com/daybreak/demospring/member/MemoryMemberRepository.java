@@ -9,7 +9,7 @@ import java.util.Map;
 public class MemoryMemberRepository implements MemberRepository{
     // DB 확정이 되지 않아서 Memory용 test용으로만 사용
 
-    private static Map<Long, Member> store = new HashMap<>();
+    private static final Map<Long, Member> store = new HashMap<>();
     // 동시성 문제를 고려한다면 ConcurrentHashMap<>() 을 사용해야 한다.
 
 

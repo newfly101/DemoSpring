@@ -20,7 +20,14 @@ public class BeanLifeCycleTest {
 
     @Configuration
     static class LifCycleConfig {
-        @Bean
+//        @Bean
+//        public NetworkClient networkClient() {
+//            NetworkClient networkClient = new NetworkClient();
+//            networkClient.setUrl("https://newfly101-groom.notion.site/Spring-18d053a6f0ca8097a7c6eae3d3dfec22");
+//            return networkClient;
+//        }
+
+        @Bean(initMethod = "init", destroyMethod = "close")
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
             networkClient.setUrl("https://newfly101-groom.notion.site/Spring-18d053a6f0ca8097a7c6eae3d3dfec22");

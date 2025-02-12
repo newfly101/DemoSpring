@@ -1,16 +1,17 @@
 package com.daybreak.demospring.lifecycle;
 
 import lombok.Setter;
+import org.springframework.beans.factory.InitializingBean;
 
 @Setter
-public class NetworkClient {
+public class NetworkClient implements InitializingBean {
 
     private String url;
 
     public NetworkClient() {
         System.out.println("생성자 호출, url = " + url);
-        connect();
-        call("초기화 연결 메세지");
+//        connect();
+//        call("초기화 연결 메세지");
     }
 
     private void call(String messege) {
@@ -24,5 +25,11 @@ public class NetworkClient {
     // 서비스 종료시 호출
     public void disConnect() {
         System.out.println("close " + url);
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        connect();
+        call("초기화 연결 메세지");
     }
 }

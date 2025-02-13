@@ -36,6 +36,8 @@ dependencies {
     // 테스트에서도 Lombok 사용
     testImplementation 'org.projectlombok:lombok:1.18.30'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+    // web 환경 추가
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 }
 
 tasks.named('test') {
